@@ -1,10 +1,10 @@
 import {
-  CSSProperties, FormEvent, useContext, useEffect, useState,
+  CSSProperties, FormEvent, useEffect, useState,
 } from 'react';
 import useSWR from 'swr';
 import { GetStaticProps } from 'next';
 import { useRouter } from 'next/dist/client/router';
-import { PostContext } from '../../components/ContextProvider';
+import { usePostContext } from '../../context/post';
 
 const styles: CSSProperties = {
   display: 'grid',
@@ -19,7 +19,7 @@ const Post = (props) => {
   const { data, error } = useSWR('/api/user', fetcher);
   const router = useRouter();
 
-  const post = useContext(PostContext);
+  const post = usePostContext();
   const [text, setText] = useState(post.state.text);
 
   useEffect(() => {

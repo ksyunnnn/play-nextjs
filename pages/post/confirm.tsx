@@ -1,7 +1,7 @@
 import { useRouter } from 'next/dist/client/router';
 import Link from 'next/link';
-import { CSSProperties, useContext, useEffect } from 'react';
-import { PostContext } from '../../components/ContextProvider';
+import { CSSProperties, useEffect } from 'react';
+import { usePostContext } from '../../context/post';
 
 const styles: CSSProperties = {
   display: 'grid',
@@ -11,7 +11,7 @@ const styles: CSSProperties = {
 
 const Confirm = (props) => {
   console.log({ props });
-  const post = useContext(PostContext);
+  const post = usePostContext();
   const router = useRouter();
 
   useEffect(() => {
