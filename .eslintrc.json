@@ -22,9 +22,9 @@
 
     "settings": {
         "import/resolver": {
-        "node": {
-            "extensions": [".js", ".jsx", ".ts", ".tsx"]
-        }
+            "node": {
+                "extensions": [".js", ".jsx", ".ts", ".tsx"]
+            }
         }
     },
 
@@ -46,6 +46,17 @@
         ],
         "react/react-in-jsx-scope": 0,
         "import/extensions": 0,
-        "react/jsx-props-no-spreading": 0
+        "react/jsx-props-no-spreading": 0,
+        "no-use-before-define": 0,
+
+        // TSとバッティングする模様
+        "no-unused-vars": [
+            1,
+            {
+                "args": "none"
+            }
+        ],
+
+        "no-console": 0
     }
 }
