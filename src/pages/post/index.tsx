@@ -5,11 +5,12 @@ import useSWR from 'swr';
 import { GetStaticProps } from 'next';
 import { useRouter } from 'next/dist/client/router';
 import { usePostContext } from '../../context/post';
+import Layout from '../../components/Layout';
 
 const styles: CSSProperties = {
   display: 'grid',
   placeContent: 'center',
-  height: '90vh',
+  height: '60vh',
 };
 
 const fetcher = (url: string) => fetch(url).then((r) => r.json());
@@ -42,16 +43,18 @@ const Post = (props) => {
   };
 
   return (
-    <form
-      style={styles}
-      onSubmit={submit}
-    >
-      <input type="text" defaultValue={data.name} />
-      <input type="text" defaultValue={data.email} />
+    <Layout title="Post">
+      <form
+        style={styles}
+        onSubmit={submit}
+      >
+        <input type="text" defaultValue={data.name} />
+        <input type="text" defaultValue={data.email} />
 
-      <textarea required name="" id="" cols={30} rows={10} value={text} onChange={(e) => setText(e.target.value)} />
-      <button type="submit">次へ</button>
-    </form>
+        <textarea required name="" id="" cols={30} rows={10} value={text} onChange={(e) => setText(e.target.value)} />
+        <button type="submit">次へ</button>
+      </form>
+    </Layout>
   );
 };
 
