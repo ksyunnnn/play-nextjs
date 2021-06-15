@@ -15,9 +15,12 @@ const Button: React.FCX<Props> = ({
     <button
       {...htmlAttributes}
       type={type === 'submit' ? 'submit' : 'button'}
-      className="py-2 px-4 rounded-md border text-sm border-gray-100 text-gray-500 hover:text-black hover:border-black"
+      className="
+        py-2 px-4 rounded-md text-sm
+        border border-gray-100 text-gray-500 hover:text-black hover:border-black
+        transition
+      "
       onClick={onClick}
-      style={{ transition: 'background-color 200ms ease 0ms, box-shadow 200ms ease 0ms, border 200ms ease 0ms, color 200ms ease 0ms' }}
     >
       {loading ? (
         <span>

@@ -1,6 +1,6 @@
 import { useRouter } from 'next/dist/client/router';
-import Link from 'next/link';
 import { CSSProperties, useEffect } from 'react';
+import Link from '../../components/Link';
 import { usePostContext } from '../../context/post';
 import Layout from '../../components/Layout';
 
