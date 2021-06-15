@@ -4,7 +4,7 @@ import React from 'react';
 
 const Link: React.FCX<LinkProps> = ({ children, ...props }) => (
   <NextLink {...props}>
-    <a className="transition py-2 px-4 rounded-md hover:text-gray-500">{children}</a>
+    <a className="transition py-2 px-4 rounded-md text-gray-500 hover:text-black">{children}</a>
   </NextLink>
 );
 
