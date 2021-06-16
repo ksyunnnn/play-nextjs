@@ -16,7 +16,7 @@ const Button: React.FCX<Props> = ({
       {...htmlAttributes}
       type={type === 'submit' ? 'submit' : 'button'}
       className="
-        py-2 px-4 rounded-md text-sm
+        py-2 px-4 rounded-md text-sm min-w-24
         border border-gray-100 text-gray-500 hover:text-black hover:border-black
         transition
       "
