@@ -55,8 +55,6 @@
             {
                 "args": "none"
             }
-        ],
-
-        "no-console": 0
+        ]
     }
 }

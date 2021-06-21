@@ -1,6 +1,7 @@
 import { CSSProperties } from 'react';
 import { signIn, signOut, useSession } from 'next-auth/client';
 import Layout from '../components/Layout';
+import Button from '../components/Button';
 
 const styles: CSSProperties = {
   display: 'grid',
@@ -17,21 +18,27 @@ const Profile = () => {
 
   if (!session) {
     return (
-      <div style={styles}>
-        Not signed in
-        <br />
-        <button type="button" onClick={() => signIn()}>Sign in</button>
-      </div>
+      <Layout title="Profile">
+        <div style={styles}>
+          <div>
+            Not signed in
+            <br />
+            <Button onClick={() => signIn()}>Sign in</Button>
+          </div>
+        </div>
+      </Layout>
     );
   }
 
   return (
     <Layout title="Profile">
       <div style={styles}>
-        <h1>Your Profile. Signed in as</h1>
-        <pre>{JSON.stringify(session.user, null, 2)}</pre>
-        <br />
-        <button type="button" onClick={() => signOut()}>Sign out</button>
+        <div>
+          <h1>Your Profile. Signed in as</h1>
+          <pre>{JSON.stringify(session.user, null, 2)}</pre>
+          <br />
+          <Button onClick={() => signOut()}>Sign out</Button>
+        </div>
       </div>
     </Layout>
   );
