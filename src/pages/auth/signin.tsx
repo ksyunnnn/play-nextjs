@@ -1,14 +1,23 @@
-import { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
-import { getProviders, signIn } from 'next-auth/client';
+import { ClientSafeProvider, getProviders, signIn } from 'next-auth/client';
 import { useRouter } from 'next/dist/client/router';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+
 import Button from '../../components/Button';
 
-const Signin: React.FCX<InferGetStaticPropsType<typeof getStaticProps>> = (
-  { providers },
+const Signin: React.FCX = (
+
 ) => {
   const router = useRouter();
   const callbackUrl = typeof router.query.callbackUrl !== 'string' ? '/' : router.query.callbackUrl;
+
+  const [providers, setProviders] = useState<Record<string, ClientSafeProvider>>({});
+
+  useEffect(() => {
+    (async () => {
+      const res = await getProviders();
+      setProviders(res);
+    })();
+  }, []);
 
   return (
     <div className="grid place-content-center min-h-screen pb-36">
@@ -27,11 +36,3 @@ const Signin: React.FCX<InferGetStaticPropsType<typeof getStaticProps>> = (
 };
 
 export default Signin;
-
-export const getStaticProps = async (context: GetStaticPropsContext) => {
-  const providers = await getProviders();
-
-  return {
-    props: { providers },
-  };
-};

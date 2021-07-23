@@ -1,8 +1,7 @@
 import {
-  CSSProperties, FormEvent, useEffect, useState,
+  CSSProperties, FormEvent, useState,
 } from 'react';
 import useSWR from 'swr';
-import { GetStaticProps } from 'next';
 import { useRouter } from 'next/dist/client/router';
 import { usePostContext } from '../../context/post';
 import Layout from '../../components/Layout';
@@ -16,17 +15,12 @@ const styles: CSSProperties = {
 const fetcher = (url: string) => fetch(url).then((r) => r.json());
 
 // コンテンツを投稿
-const Post = (props) => {
+const Post = () => {
   const { data, error } = useSWR('/api/user', fetcher);
   const router = useRouter();
 
   const post = usePostContext();
   const [text, setText] = useState(post.state.text);
-
-  useEffect(() => {
-    console.log('mounted', { props });
-    return console.log('unmounted', { props });
-  }, []);
 
   if (error) return <div style={styles}>failed to load</div>;
   if (!data) return <div style={styles}>loading...</div>;
@@ -59,12 +53,3 @@ const Post = (props) => {
 };
 
 export default Post;
-
-// https://nextjs.org/learn/excel/typescript/nextjs-types
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  console.log('static', { params });
-
-  return {
-    props: { static: 'static', params: params || 'no params' },
-  };
-};
