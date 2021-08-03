@@ -6,11 +6,11 @@ import ContextProvider from '../context/Provider';
 
 import 'tailwindcss/tailwind.css';
 
-const App = ({ Component, pageProps, router }: AppProps) => (
+const App = ({ Component, pageProps }: AppProps) => (
   <SessionProvider session={pageProps.session}>
     <ContextProvider>
       <Head>
-        <title>App</title>
+        <title>{process.env.NEXT_PUBLIC_SITE_NAME}</title>
         <meta name="description" content="App" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
