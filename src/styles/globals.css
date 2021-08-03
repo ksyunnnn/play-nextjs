@@ -18,3 +18,7 @@ a {
   text-rendering: geometricPrecision;
   -webkit-tap-highlight-color: transparent;
 }
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
