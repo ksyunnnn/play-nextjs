@@ -3,7 +3,7 @@ import { Provider as SessionProvider } from 'next-auth/client';
 import Head from 'next/head';
 import ContextProvider from '../context/Provider';
 
-import '../styles/globals.css';
+import 'tailwindcss/tailwind.css';
 
 const App = ({ Component, pageProps }: AppProps) => (
   <SessionProvider session={pageProps.session}>

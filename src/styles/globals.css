@@ -1,3 +1,7 @@
+/* @import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities"; */
+
 html,
 body {
   padding: 0;
@@ -18,7 +22,3 @@ a {
   text-rendering: geometricPrecision;
   -webkit-tap-highlight-color: transparent;
 }
-
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
